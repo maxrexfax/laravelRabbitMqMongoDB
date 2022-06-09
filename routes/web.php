@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('send/text', [SendController::class, 'sendText']);
 
 Auth::routes();
 
