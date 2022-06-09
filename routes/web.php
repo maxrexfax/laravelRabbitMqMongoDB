@@ -20,8 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('rabbitMessage/send', [RabbitController::class, 'sendText']);
+Route::post('rabbitMessage/sendPost', [RabbitController::class, 'sendPost'])->name('rabbit.send.post');
 
 
 Auth::routes();
-
+Route::get('rabbitMessage/index', [RabbitController::class, 'index'])->name('rabbit.create.message');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

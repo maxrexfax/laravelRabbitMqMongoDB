@@ -9,14 +9,27 @@ use App\Jobs\SendTextJob;
 
 class RabbitController extends Controller
 {
+    private $sendTextJob;
+
+    public function __construct()
+    {
+        $this->sendTextJob = new SendTextJob();
+    }
+
+    public function index()
+    {
+        return view('rabbit.index');
+    }
+
     public function sendText()
     {
         $data = "info: Hello World!";
-        (new SendTextJob())->handle($data);
+        $this->sendTextJob->handle($data);
     }
 
-    public function getText()
+    public function sendPost(Request $request)
     {
-        (new SendTextJob())->getMessages();
+        $this->sendTextJob->handle($request->post('message'));
+        return back();
     }
 }
