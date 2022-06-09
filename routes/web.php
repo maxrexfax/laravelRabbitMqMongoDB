@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SendController;
+use App\Http\Controllers\RabbitController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('send/text', [SendController::class, 'sendText']);
+Route::get('rabbitMessage/send', [RabbitController::class, 'sendText']);
+
 
 Auth::routes();
 
