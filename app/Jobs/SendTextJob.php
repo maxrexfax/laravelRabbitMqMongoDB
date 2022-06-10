@@ -35,22 +35,18 @@ class SendTextJob implements ShouldQueue
      */
     public function handle($data)
     {
-
-
-        $exchange = 'laravel_direct';
+        $exchange = 'laravel_exchange';
 
         $connection = new AMQPSSLConnection($this->host, $this->port, $this->user, $this->pass);
         $channel = $connection->channel();
-
+        $channel->exchange_declare($exchange, 'fanout', false, true, false);
         $channel->queue_declare('laravel_queue', false, true, false, false);
 
         $msg = new AMQPMessage($data);
         $channel->basic_publish($msg, $exchange);
 
-
         $channel->close();
         $connection->close();
-        echo 'Message:"' . $data . "\" has been sent\n";
     }
 
 }

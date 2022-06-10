@@ -25,6 +25,7 @@ class RabbitController extends Controller
     {
         $data = "info: Hello World!";
         $this->sendTextJob->handle($data);
+        echo 'Data: "' . $data . "\" was sent<br>";
     }
 
     public function sendPost(Request $request)

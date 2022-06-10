@@ -6,7 +6,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
 //use Illuminate\Foundation\Auth\User as Authenticatable;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
@@ -16,6 +15,8 @@ class User extends Authenticatable
 
     protected $connection = 'mongodb';
     protected $collection = 'users';
+    public $timestamps = true;
+
     /**
      * The attributes that are mass assignable.
      *

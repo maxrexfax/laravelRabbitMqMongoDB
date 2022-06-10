@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RabbitController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,5 @@ Route::post('rabbitMessage/sendPost', [RabbitController::class, 'sendPost'])->na
 Auth::routes();
 Route::get('rabbitMessage/index', [RabbitController::class, 'index'])->name('rabbit.create.message');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/messages/index', [MessageController::class, 'index'])->name('messages.index');
