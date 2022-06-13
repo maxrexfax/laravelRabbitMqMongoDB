@@ -38,8 +38,8 @@ return [
         'mongodb' => [
             'driver' => 'mongodb',
             'host'     => env('DB_HOST', 'localhost'),
-            'port'     => env('MONGO_DB_PORT', '27017'),
-            'database' => env('MONGO_DATABASE', ''),
+            'port'     => env('DB_MONGO_PORT', '27017'),
+            'database' => env('DB_MONGO_DATABASE', ''),
         ],
 
         'sqlite' => [

@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ __('Rabbit Laravel Mongo') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,7 +35,11 @@
                     <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('rabbit.create.message') }}">{{ __('Rabbit create message') }}</a>
+                                <a class="nav-link" href="{{ route('rabbit.create.message') }}">{{ __('Write message') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('messages.index') }}">{{ __('List of messages') }}</a>
                             </li>
                         @endauth
                     </ul>

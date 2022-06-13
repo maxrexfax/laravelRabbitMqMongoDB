@@ -29,3 +29,7 @@ Route::get('rabbitMessage/index', [RabbitController::class, 'index'])->name('rab
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/messages/index', [MessageController::class, 'index'])->name('messages.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
